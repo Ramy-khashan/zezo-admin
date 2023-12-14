@@ -1,0 +1,45 @@
+.box {
+    border: 1.2px solid grey;
+    border-radius: 5px;
+    width: 100%;
+    padding: 1px;
+    margin-bottom: 80px;
+}
+
+th {
+    background-color: rgb(75, 72, 72);
+    color: white;
+}
+
+th,
+td {
+    text-align: center;
+    vertical-align: middle;
+}
+table{
+    width: 165%;
+    overflow-x: scroll;
+}
+.title{
+    width: 20%;
+}
+ .description{
+    width: 40%;
+}
+ 
+.loading{margin-top: 150px; text-align: center;}
+.table-head{
+    width: 6%;
+}.category{
+    width: 9%;
+}.card {
+    height: 90px;
+
+    .not-found {
+        margin-top: auto;
+        margin-bottom: auto;
+        font-size: 22px;
+        text-align: center;
+        vertical-align: middle;
+    }
+}

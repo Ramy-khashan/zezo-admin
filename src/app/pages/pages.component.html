@@ -1,0 +1,7 @@
+<app-side-menu (onToggleSideNav)="onToggleSideNav($event)"></app-side-menu>
+
+<div class="body" [ngClass]="getBodyClass()" >
+    <!-- <app-header></app-header> -->
+    <router-outlet></router-outlet>
+
+</div>

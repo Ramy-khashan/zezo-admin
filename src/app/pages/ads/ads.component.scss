@@ -1,0 +1,41 @@
+.box {
+    border: 1.2px solid grey;
+    border-radius: 5px;
+    padding: 1px;
+    margin-bottom: 80px;
+}
+
+th {
+    background-color: rgb(75, 72, 72);
+    color: white;
+}
+
+th,
+td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+.loading {
+    margin-top: 150px;
+    text-align: center;
+}
+
+.cat-img {
+    background-size: cover;
+    width: 230px;
+    height: 130px
+}
+
+.card {
+    height: 90px;
+
+    .not-found {
+        margin-top: auto;
+        margin-bottom: auto;
+        font-size: 22px;
+        text-align: center;
+        vertical-align: middle;
+    }
+}

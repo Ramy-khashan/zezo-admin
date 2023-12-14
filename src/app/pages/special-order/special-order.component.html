@@ -1,0 +1,74 @@
+<h1><i>Spacial Orders</i></h1>
+
+<div class="filter">
+    <label for="filter">Filter By Status : </label>
+    <select (change)="onFilter($event)">
+        <option value="all">All</option>
+        <option value="in_progress">In Progress</option>
+        <option value="accepted">Accepted</option>
+        <option value="rejected">Rejected</option>
+    </select>
+</div>
+<div class="table table-responsive" style="border: 1.5px solid rgba(149, 138, 138, 0.401); border-radius: 10px;"
+    *ngIf="orders?.length !== 0 &&!isLoaingOrder">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>User Name</th>
+                <th>email</th>
+                <th>Phone</th>
+                <th class="details">Order</th>
+                <th class="details">Description</th>
+                <th>Address</th>
+                <th>Order Status</th>
+                <th>User Info</th>
+                <th>Accept</th>
+                <th>Reject</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orders| paginate:{id:'listing_pagination',
+            itemsPerPage:itemsPerPage,
+            currentPage:page,
+            totalItems:totalRecords}">
+
+                <td>{{order.order_id}}</td>
+                <td>{{order.full_name}}</td>
+                <td>{{order.email}}</td>
+                <td>{{order.phone}}</td>
+                <td>{{order.special_order}}</td>
+                <td>{{order.description}}</td>
+                <td>{{order.address}}</td>
+                <td>{{order.status}}</td>
+                <td><button class="btn btn-secondary" (click)="showUserData(order.user_id)">View</button></td>
+
+                <td  *ngIf="order.status==='in_progress'"><button class="btn btn-success" (click)="changeOrderSatus('accepted',order.order_id)"
+                       >Accept</button></td>
+                <td *ngIf="order.status==='accepted'" style="color: green;">Accepted</td>
+                <td *ngIf="order.status==='rejected'"></td>
+                <td *ngIf="order.status==='in_progress'"><button class="btn btn-danger" (click)="changeOrderSatus('rejected',order.order_id)"
+                       >Reject</button></td>
+                <td *ngIf="order.status==='rejected'" style="color: red;">Rejected</td>
+                <td *ngIf="order.status==='accepted'"></td>
+
+
+
+            </tr>
+
+        </tbody>
+    </table>
+    <pagination-controls id="listing_pagination"  directionLink="true"
+    (pageChange)="page=$event"></pagination-controls>
+</div>
+<div class="card" *ngIf="orders?.length == 0 && !isLoaingOrder">
+    <i class="not-found">No Orders Found</i>
+</div>
+<div class="loading" *ngIf="isLoaingOrder">
+    <app-loading></app-loading>
+</div>
+<!-- <div class="modal-dialog modal-dialog-scrollable">
+  ...
+</div> -->

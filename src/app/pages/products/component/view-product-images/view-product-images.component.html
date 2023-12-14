@@ -1,0 +1,17 @@
+<div class="scroll">
+    <div class="modal-header">
+        <h4 class="modal-title text-dark text-bold-300">
+        Product Images
+        </h4>
+        <button type="button" class="btn-close" (click)="closeModal()">
+        </button>
+    </div>
+
+    <div class="modal-body modal-dialog-scrollable">
+       <div class="image-card" *ngFor="let img of productImages">
+        <img src="{{img}}"  alt="" width="150px" height="250px">
+       </div>
+
+    </div>
+
+</div>

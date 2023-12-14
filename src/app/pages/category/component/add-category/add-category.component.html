@@ -1,0 +1,39 @@
+<div class="scroll">
+    <div class="modal-header">
+        <h4 class="modal-title text-dark text-bold-300">
+            Add New Category
+        </h4>
+        <button type="button" class="btn-close" (click)="closeModal()">
+        </button>
+    </div>
+    <form [formGroup]="form!">
+        <div class="modal-body modal-dialog-scrollable">
+
+
+            <div class="form-group ">
+                <label>Title : </label>
+                <input type="text" class="form-control" id="title" placeholder="title" formControlName="title" />
+            </div>
+
+
+            <div class="form-group ">
+                <label>Pick Images : </label>
+                <img class="main-image" [src]=" file " alt="">
+                <input type="file" class="form-control" (change)="getImage($event)" />
+
+            </div>
+        </div>
+
+
+
+
+        <div class="modal-footer">
+            <i class="pi pi-spin pi-spinner" *ngIf="isloadingAdd"></i>
+            <button type="submit" *ngIf="imageFile !==''&&!isloadingAdd"
+                class="btn btn-success matches-list-clear glow mb-0" (click)="addCategory()">
+                <i class="ft-check"></i>
+                Add
+            </button>
+        </div>
+    </form>
+</div>

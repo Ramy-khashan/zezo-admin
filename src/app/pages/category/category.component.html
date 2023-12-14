@@ -1,0 +1,46 @@
+<h1>categorys</h1>
+
+<div class="box">
+    <button class="btn btn-success" (click)="openAddCategory()">Add category</button>
+
+</div>
+<div class="table table-responsive" style="border: 1.5px solid rgba(149, 138, 138, 0.401); border-radius: 10px;"
+    *ngIf="!isLoaingCategory">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th class="table-head">Image</th>
+                <th class="title">Title</th> 
+ 
+                <th>Edit</th>
+                <th>Delete</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let category of categories">
+
+                <td>{{category.category_id}}</td>
+                <td><img src="{{category.category_image}}" alt="" class ="cat-img"></td>
+                <td>{{category.title}}</td> 
+        
+                 <td><button class="btn btn-warning" (click)="updateCategory(category)">Edit</button></td>
+                <td><button class="btn btn-danger" (click)="openDeleteProduct(category.category_id)">Delete</button></td>
+
+
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+<div class="card" *ngIf="categories?.length == 0 && !isLoaingCategory">
+    <i class="not-found">No Categories Found</i>
+</div>
+<div class="loading" *ngIf="isLoaingCategory">
+    <app-loading></app-loading>
+</div>
+<!-- <div class="modal-dialog modal-dialog-scrollable">
+  ...
+</div> -->
+ 

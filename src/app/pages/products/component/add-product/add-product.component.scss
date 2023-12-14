@@ -1,0 +1,32 @@
+.form-group {
+    margin-bottom: 8px;
+}
+
+label {
+    margin-bottom: 8px;
+}
+
+.scroll {
+    overflow: scroll;
+    height: 400px;
+}
+
+.main-image {
+    width: 100%;
+    max-height: 95px !important;
+}
+
+.product-images {
+    margin-left: 10px;
+    margin-top: 4px;
+    display: block;
+}
+
+.pi {
+    margin-bottom: 0;
+    margin-top: 15px;
+    display: block;
+    color: red;
+    cursor: pointer;
+    margin-left: 8px;
+}

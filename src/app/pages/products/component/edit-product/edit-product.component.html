@@ -1,0 +1,78 @@
+<div class="scroll">
+    <div class="modal-header">
+        <h4 class="modal-title text-dark text-bold-300">
+            Edit Product
+        </h4>
+        <button type="button" class="btn-close" (click)="closeModal()">
+        </button>
+    </div>
+    <form [formGroup]="form!">
+        <div class="modal-body modal-dialog-scrollable">
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label>Title : </label>
+                    <input type="text" class="form-control" id="title" placeholder="title" formControlName="title" />
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Price : </label>
+                    <input type="number" class="form-control" id="price" placeholder="price" formControlName="price" />
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Category :</label>
+                    <select class="form-control" (change)="setCategory($event)" formControlName="category">
+                        <option value="{{ category.category_id }}" *ngFor="let category of categories">
+                            {{ category.title }}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4 mt-3">
+                    <input type="checkbox" class="checkbox" formControlName="important"> <label> Important</label>
+                    <!-- <select class="form-control" (change)="setImportant($event)" formControlName="important">
+                        <option value="false">
+                            False
+                        </option>
+                        <option value="true">
+                            True
+                        </option>
+                    </select> -->
+                </div>
+                <div class="form-group col-md-4 mt-3">
+                    <input type="checkbox" class="checkbox" formControlName="is_on_sale"> <label>Is On Sale </label>
+                    <!-- <select class="form-control" (change)="setIsOnSale($event)" formControlName="is_on_sale">
+                        <option value="false">
+                            False
+                        </option>
+                        <option value="true">
+                            True
+                        </option>
+
+                    </select> -->
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label>On Sale Price : </label>
+                    <input type="number" class="form-control" id="price" placeholder="On Sale Price"
+                        formControlName="on_sale_price" />
+                </div>
+
+
+                <div class="form-group">
+                    <label>Description : </label>
+                    <div> <textarea name="" id="" cols="30" rows="5" style="width: 100%;"
+                            formControlName="description"></textarea></div>
+                </div>
+
+
+            </div>
+
+            <div class="modal-footer">
+                <i class="pi pi-spin pi-spinner" *ngIf="isloadingUpdate"></i>
+                <button type="submit" class="btn btn-success matches-list-clear glow mb-0" *ngIf="!isloadingUpdate"
+                    (click)="editProduct()">
+                    <i class="ft-check"></i>
+                    Edit
+                </button>
+            </div>
+
+        </div>

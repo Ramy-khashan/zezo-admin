@@ -1,0 +1,52 @@
+<!--   -->
+<div class="login">
+
+    <div class="row">
+        <div class="col-md-6 p-0">
+            <div class="overlay"></div>
+            <img src="../../../../assets/zezo.png" alt="">
+
+        </div>
+        <div class="col-md-6 p-0">
+            <div class="h-100 d-flex align-items-center justify-content-center w-100">
+                <div class="box w-75">
+                    <h2>Login </h2>
+
+                    <form [formGroup]="form!">
+                        <div class="mb-4 form-group">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" formControlName="email"
+                                [ngClass]="{ 'is-invalid': loginFormSubmitted && lf['email'].invalid, 'is-valid': loginFormSubmitted && !lf['email'].invalid }"
+                                required>
+                            <div *ngIf="loginFormSubmitted && (lf['email'].invalid && lf['email'].errors!['required'])"
+                                class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i> This
+                                is
+                                required</div>
+
+                            <div *ngIf="loginFormSubmitted && (lf['email'].invalid && lf['email'].errors?.['email'])"
+                                class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i> Email
+                                only </div>
+                        </div>
+                        <div class="mb-3 form-group">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                formControlName="password"
+                                [ngClass]="{ 'is-invalid': loginFormSubmitted && lf['password'].invalid, 'is-valid': loginFormSubmitted && !lf['password'].invalid }"
+                                required>
+                            <div *ngIf="(loginFormSubmitted && (lf['password'].invalid || lf['password'].errors!['required']))"
+                                class="help-block mt-1 text-danger">
+                                <i class="ft-alert-circle align-middle"></i> This is required
+                            </div>
+                        </div>
+                        <div class="login-btn d-flex justify-content-center ">
+                            <button type="submit" class="btn btn-success" (click)="login()">Login</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

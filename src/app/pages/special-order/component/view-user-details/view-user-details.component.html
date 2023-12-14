@@ -1,0 +1,41 @@
+<div class="scroll">
+    <div class="modal-header">
+        <h1 class="modal-title text-dark text-bold-300">
+            <i> User Information
+            </i>
+        </h1>
+        <button type="button" class="btn-close" (click)="closeModal()">
+        </button>
+    </div>
+
+    <div class="modal-body modal-dialog-scrollable">
+        <div class="table table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <th>User Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>UID</th>
+                </thead>
+                <tbody>
+<td>{{user.user_id}}</td> 
+<td>{{user.name}}</td> 
+<td>{{user.email}}</td> 
+<td>{{user.phone}}</td> 
+<td>{{user.user_uid}}</td> 
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- <div class="modal-footer">
+            <i class="pi pi-spin pi-spinner" *ngIf="isloadingAdd"></i>
+            <button type="submit"
+                *ngIf="(productImagesUrl.length === productImagesFile.length &&productImagesUrl.length !==0)||!isloadingAdd"
+                class="btn btn-success matches-list-clear glow mb-0" (click)="addProduct()">
+                <i class="ft-check"></i>
+                Add
+            </button>
+        </div>  -->
+</div>

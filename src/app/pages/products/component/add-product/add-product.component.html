@@ -1,0 +1,101 @@
+<div class="scroll">
+    <div class="modal-header">
+        <h4 class="modal-title text-dark text-bold-300">
+            Add New Product
+        </h4>
+        <button type="button" class="btn-close" (click)="closeModal()">
+        </button>
+    </div>
+    <form [formGroup]="form!">
+        <div class="modal-body modal-dialog-scrollable">
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label>Title : </label>
+                    <input type="text" class="form-control" id="title" placeholder="title" formControlName="title" />
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Price : </label>
+                    <input type="number" class="form-control" id="price" placeholder="price" formControlName="price" />
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Category :</label>
+                    <select class="form-control" (change)="setCategory($event)">
+                        <option value="{{ category.category_id }}" *ngFor="let category of categories">
+                            {{ category.title }}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Important : </label>
+                    <select class="form-control" (change)="setImportant($event)">
+                        <option value="false">
+                            False
+                        </option>
+                        <option value="true">
+                            True
+                        </option>
+
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Is On Sale : </label>
+                    <select class="form-control" (change)="setIsOnSale($event)">
+                        <option value="false">
+                            False
+                        </option>
+                        <option value="true">
+                            True
+                        </option>
+
+                    </select>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label>On Sale Price : </label>
+                    <input type="number" class="form-control" id="price" placeholder="On Sale Price"
+                        formControlName="on_sale_price" />
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Pick Images : </label>
+                    <img class="main-image" [src]=" file " alt="">
+                    <input type="file" class="form-control" (change)="getImage($event)" />
+
+                </div>
+
+                <div class="form-group col-md-8">
+                    <label>Description : </label>
+                    <div> <textarea name="" id="" cols="30" rows="3" style="width: 100%;"
+                            formControlName="description"></textarea></div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label>Pick Product Images : </label>
+                <input type="file" class="form-control" (change)="getProductImages($event)" multiple />
+                <div class="row">
+                    <div class="col " *ngFor="let image of productImages let index=index">
+                        <div style="display: block;">
+                            <i class="pi pi-trash " (click)="deleteImage(index)"></i>
+                            <img [src]="image" alt="" class="product-images" width="100px" height="200px">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <i class="pi pi-spin pi-spinner" *ngIf="isloadingUploadImg"></i>
+            <button *ngIf="(productImagesFile.length!==0)||! isloadingUploadImg" class="btn btn-success" (click)="uploadProductImage()">Upload
+                Product Images</button>
+        </div>
+
+        <div class="modal-footer">
+            <i class="pi pi-spin pi-spinner" *ngIf="isloadingAdd"></i>
+            <button type="submit"
+                *ngIf="(productImagesUrl.length === productImagesFile.length &&productImagesUrl.length !==0)||!isloadingAdd"
+                class="btn btn-success matches-list-clear glow mb-0" (click)="addProduct()">
+                <i class="ft-check"></i>
+                Add
+            </button>
+        </div>
+    </form>
+</div>

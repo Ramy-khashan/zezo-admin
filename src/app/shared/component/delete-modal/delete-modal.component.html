@@ -1,0 +1,20 @@
+<div class="modal-header">
+    <h4 class="modal-title text-dark text-bold-300">
+        Delete {{title}}
+    </h4>
+    <!-- <button type="button" class="close" (click)="closeModal()">
+        <span aria-hidden="true">&times;</span>
+    </button> -->
+</div>
+
+<p>Are you sure for delete this item!</p>
+
+<div class="row justify-content-md-center mb-2 item">
+    <button type="submit" class="btn btn-success matches-list-clear glow mb-0 mr-5" (click)="deleteItem()">
+        <i class="ft-check"></i>
+        Delete
+    </button> <button type="submit" class="btn btn-success matches-list-clear glow mb-0" (click)="closeModal()">
+        <i class="ft-check"></i>
+        Cancel
+    </button>
+</div>

@@ -1,0 +1,38 @@
+<div class="scroll">
+    <div class="modal-header">
+        <h1 class="modal-title text-dark text-bold-300">
+            <i> Order Product Details
+            </i>
+        </h1>
+        <button type="button" class="btn-close" (click)="closeModal()">
+        </button>
+    </div>
+
+    <div class="modal-body modal-dialog-scrollable">
+        <div class="table table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <th>Product Id</th>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let product of products">
+                        <td>{{product.product_id}}</td>
+                        <td> <img src="{{product.image}}" alt="" width="180px" height="80px"> </td>
+                        <td>{{product.title}}</td>
+                        <td>{{product.quantity}}</td>
+                        <td>{{product.price}} L.E</td>
+                        <td>{{+(product.price) * +(product.quantity)}} L.E</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div class="total"> Total Price : {{total}} L.E </div> 
+        </div>
+    </div>  
+</div>

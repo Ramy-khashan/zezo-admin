@@ -1,0 +1,15 @@
+<h1><i>Project Settings</i></h1>
+ 
+<div *ngIf="!isLoading">
+    <div class="row mt-5 mb-3">
+        <div class="col-8"><span>Delivery Fees Amount :</span> <input type="number" (change)="getDeliveryFeesChanged($event)" value="{{deliveryValue}}" ></div>
+        <div class="col"><button class="btn btn-primary" (click)="editDeliveryValue()">Update</button></div>
+    </div>
+    <div class="row ">
+        <div class="col-8"><span>Order Delivery Message : </span><input type="text" (change)="getMsgChanged($event)" value="{{sendOrderMsg}}" ></div>
+        <div class="col"><button class="btn btn-primary" (click)="editMsg()">Update</button></div>
+    </div>
+</div>
+<div class="loading" *ngIf="isLoading">
+    <app-loading></app-loading>
+</div>
