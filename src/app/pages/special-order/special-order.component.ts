@@ -15,7 +15,7 @@ import { ViewUserDetailsComponent } from './component/view-user-details/view-use
 export class SpecialOrderComponent implements OnInit {
   isLoaingOrder: boolean = false;
   orders: SpecialOrder[] = [];
-  firebase = new FirebaseTSFirestore();
+  firebase: FirebaseTSFirestore = new FirebaseTSFirestore();
   totalRecords: number = 0;
   itemsPerPage: number = 15;
   page: number = 1;

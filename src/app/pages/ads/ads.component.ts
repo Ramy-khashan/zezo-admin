@@ -13,7 +13,7 @@ import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFi
 export class AdsComponent implements OnInit {
   isLoaingads: boolean = false;
   ads: Ads[] = [];
-  firebase = new FirebaseTSFirestore();
+  firebase:FirebaseTSFirestore = new FirebaseTSFirestore();
 
   constructor(private router: Router, private modalService: NgbModal) {}
   ngOnInit(): void {

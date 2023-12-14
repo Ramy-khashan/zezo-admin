@@ -18,7 +18,7 @@ import { DeleteModalComponent } from 'src/app/shared/component/delete-modal/dele
 export class CategoryComponent implements OnInit {
   isLoaingCategory: boolean = false;
   categories: Category[] = [];
-  firebase = new FirebaseTSFirestore();
+   
 
   constructor(
     private router: Router,
@@ -30,7 +30,7 @@ export class CategoryComponent implements OnInit {
   }
   getCategory() {
     this.isLoaingCategory = true;
-    this.firebase.getCollection({
+    new FirebaseTSFirestore().getCollection({
       path: ['category'],
       where: [],
       onComplete: (result) => {
@@ -81,7 +81,7 @@ export class CategoryComponent implements OnInit {
     };
   }
   deleteCategory(category_id: string) {
-    this.firebase.delete({
+    new FirebaseTSFirestore().delete({
       path: ['category', category_id],
       onComplete: () => {
         window.location.reload();

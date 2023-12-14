@@ -20,7 +20,7 @@ export class OrdersComponent implements OnInit {
   totalRecords: number=0;
   itemsPerPage: number=15;
   page: number =1; 
-  firebase = new FirebaseTSFirestore();
+  firebase:FirebaseTSFirestore = new FirebaseTSFirestore();
 
   constructor(private router: Router, private modalService: NgbModal) {}
   ngOnInit(): void {

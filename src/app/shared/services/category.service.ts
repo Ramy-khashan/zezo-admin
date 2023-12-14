@@ -8,7 +8,7 @@ import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFi
 export class CategoryService {
   categories: Category[] = [];
   constructor(private router: Router) {}
-  firebase = new FirebaseTSFirestore();
+  firebase: FirebaseTSFirestore = new FirebaseTSFirestore();
 
   getCategory() {
     this.categories = [];

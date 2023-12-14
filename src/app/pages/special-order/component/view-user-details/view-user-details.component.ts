@@ -16,7 +16,7 @@ export class ViewUserDetailsComponent  implements OnInit{
     user_id: '',
     user_uid: ''
   };
-  firebase = new FirebaseTSFirestore();
+  firebase : FirebaseTSFirestore= new FirebaseTSFirestore();
   constructor(private modalService: NgbModal) {}
   ngOnInit(): void {
    this.getUserData();

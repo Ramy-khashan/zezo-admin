@@ -8,8 +8,7 @@ import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFi
 })
 export class SettingComponent implements OnInit {
   isLoading:boolean = false;
-  firestore: FirebaseTSFirestore = new FirebaseTSFirestore();
-  constructor() {}
+   constructor() {}
   ngOnInit(): void {
     this.getDeliveryVal();
     this.getsendOrderMsg();
@@ -18,7 +17,7 @@ export class SettingComponent implements OnInit {
   sendOrderMsg: string = '';
   getDeliveryVal() {
    this. isLoading  = true;
-    this.firestore.getDocument({
+   new FirebaseTSFirestore().getDocument({
       path: ['configration', 'deliveryFees'],
       onComplete: (result) => {
         this.deliveryValue = <string>result.data()!['delivery_fees'];
@@ -30,7 +29,7 @@ export class SettingComponent implements OnInit {
   getsendOrderMsg() {
    this. isLoading  = true;
 
-    this.firestore.getDocument({
+   new FirebaseTSFirestore().getDocument({
       path: ['configration', 'sendOrderMsg'],
       onComplete: (result) => {
         this.sendOrderMsg = <string>result.data()!['msg'];
@@ -46,7 +45,7 @@ export class SettingComponent implements OnInit {
     this.deliveryValue = (<HTMLInputElement>data.target).value;
   }
   editMsg() {
-    this.firestore.update({
+    new FirebaseTSFirestore().update({
       path: ['configration', 'sendOrderMsg'],
       data: {
         msg: this.sendOrderMsg,
@@ -57,7 +56,7 @@ export class SettingComponent implements OnInit {
     });
   }
   editDeliveryValue() {
-    this.firestore.update({
+    new FirebaseTSFirestore().update({
       path: ['configration', 'deliveryFees'],
       data: {
         delivery_fees: this.deliveryValue,

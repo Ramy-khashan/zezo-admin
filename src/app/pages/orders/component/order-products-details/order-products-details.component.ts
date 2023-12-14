@@ -12,8 +12,7 @@ export class OrderProductsDetailsComponent {
   isLoaingOrder: boolean = false;
   @Input() products:Product[]=[];
   @Input() total:string="";
-  firebase = new FirebaseTSFirestore();
-  constructor(private modalService: NgbModal) {}
+   constructor(private modalService: NgbModal) {}
  
   closeModal() {
     this.modalService.dismissAll();

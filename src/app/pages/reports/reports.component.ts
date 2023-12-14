@@ -13,7 +13,7 @@ export class ReportsComponent implements OnInit {
   itemsPerPage: number=15;
   page: number =1; 
   reports: Reports[] = [];
-  firebase = new FirebaseTSFirestore();
+  firebase: FirebaseTSFirestore = new FirebaseTSFirestore();
 
   constructor(private router: Router) {}
   ngOnInit(): void {
